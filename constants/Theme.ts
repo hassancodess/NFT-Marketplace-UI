@@ -1,6 +1,6 @@
 import { normalize } from "@/utils/normalize";
 
-export const colors: Record<string, string> = {
+export const colors = {
     danger: "#F26666",
     success: "#00CB6A",
     grayLight: "#AAB8C2",
@@ -10,7 +10,7 @@ export const colors: Record<string, string> = {
     blue: "#1D9BF0"
   };
 
-  export const fonts: Record<string, string> = {
+  export const fonts = {
     light: "Poppins-Light",
     regular: "Poppins-Regular",
     medium: "Poppins-Medium",
@@ -18,7 +18,7 @@ export const colors: Record<string, string> = {
   };
   
   
-  export const sizes: Record<string, number> = {
+  export const sizes = {
     "XS": normalize( 4),
     "SM": normalize(6),
     "LG": normalize(8),

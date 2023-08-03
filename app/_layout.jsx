@@ -41,7 +41,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
 	return (
 		<>
-			<StatusBar animated translucent style="dark" />
+			<StatusBar animated translucent style="light" />
 			<Stack screenOptions={{ headerShown: false, header: (props) => <CustomAppbar {...props} /> }}>
 				<Stack.Screen name="onboarding" />
 				<Stack.Screen name="dashboard" />

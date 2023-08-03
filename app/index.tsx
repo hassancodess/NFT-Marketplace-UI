@@ -1,17 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Redirect, useRootNavigationState } from "expo-router";
 
 const IndexPage = () => {
-	return (
-		<View>
-			<Text>IndexPage</Text>
-			<Link href={"/onboarding/"}>Go to Onboarding</Link>
-			<Link href={"/dashboard/"}>Go to Dashboard</Link>
-		</View>
-	);
+	const rootNavigationState = useRootNavigationState();
+
+	if (!rootNavigationState?.key) return null;
+
+	return <Redirect href={"/dashboard/"} />;
 };
 
 export default IndexPage;
-
-const styles = StyleSheet.create({});
