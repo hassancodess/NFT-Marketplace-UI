@@ -5,17 +5,21 @@ import HeaderBar from "@/components/dashboard/HeaderBar";
 import ProfileAvatar from "@/components/dashboard/ProfileAvatar";
 import Balance from "@/components/dashboard/Balance";
 import CategoriesList from "@/components/dashboard/CategoriesList";
+import NFTCardsList from "@/components/dashboard/NFTCardsList";
+import TrendingCollectionsList from "@/components/dashboard/TrendingCollectionsList";
 import { sizes } from "@/constants/Theme";
+import avatarImage from "@/assets/images/avatar/avatar.webp";
 
 const Home = () => {
 	return (
 		<Container style={styles.container}>
 			<HeaderBar>
 				<Balance />
-				<ProfileAvatar />
+				<ProfileAvatar image={avatarImage} size={60} />
 			</HeaderBar>
 			<CategoriesList />
-			{/* Categories */}
+			<NFTCardsList />
+			<TrendingCollectionsList />
 		</Container>
 	);
 };

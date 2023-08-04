@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/shared/CustomAppbar.ksx", "app/_layout.jsx", "app/dashboard/_layout.jsx", "app/onboarding/_layout.jsx"  ]
+, "components/shared/CustomAppbar.ksx", "app/_layout.jsx", "app/dashboard/_layout.jsx", "app/onboarding/_layout.jsx", "data/NFTCards.js", "app/dashboard/index.jsx"  ]
 }

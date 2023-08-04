@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import React from "react";
 import CategoryButton from "./CategoryButton";
 import { sizes } from "@/constants/Theme";
@@ -32,13 +32,16 @@ const renderItem = ({ item }) => {
 
 const CategoriesList = () => {
 	return (
-		<FlatList
-			horizontal
-			data={categories}
-			keyExtractor={(item, index) => item.id}
-			renderItem={renderItem}
-			contentContainerStyle={{ gap: sizes.XL4, alignSelf: "flex-start" }}
-		/>
+		<View>
+			<FlatList
+				showsHorizontalScrollIndicator={false}
+				horizontal
+				data={categories}
+				keyExtractor={(item, index) => item.id}
+				renderItem={renderItem}
+				contentContainerStyle={{ gap: sizes.XL4 }}
+			/>
+		</View>
 	);
 };
 
