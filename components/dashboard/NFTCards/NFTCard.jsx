@@ -5,13 +5,13 @@ import { colors, fonts, sizes } from "@/constants/Theme";
 import { Avatar, IconButton, Text } from "react-native-paper";
 import { convertHex } from "@/utils/convertHex";
 import { Ionicons } from "@expo/vector-icons";
-import ProfileAvatar from "./ProfileAvatar";
-import EthSvg from "./EthSvg";
+import ProfileAvatar from "@/components/shared/ProfileAvatar";
+import EthSvg from "../../shared/EthSvg";
 
 const NFTCard = ({ item }) => {
 	return (
 		<View style={styles.container}>
-			<BlurView intensity={100} style={styles.blurContainer}>
+			<View style={styles.blurContainer}>
 				{/* <Text>NFTCard</Text> */}
 				<View style={styles.imageContainer}>
 					<Image source={item.itemImage} style={styles.image} resizeMode="cover" />
@@ -46,8 +46,8 @@ const NFTCard = ({ item }) => {
 						justifyContent: "space-between",
 						alignItems: "center",
 					}}>
-					<View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-						<ProfileAvatar image={item.avatarImage} size={40} mode="no-border" verified />
+					<View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+						<ProfileAvatar image={item.avatarImage} size={32} mode="no-border" verified />
 						<View>
 							<Text style={styles.avatarText}>{item.addedBy}</Text>
 						</View>
@@ -55,13 +55,13 @@ const NFTCard = ({ item }) => {
 					{/* Price Container */}
 					<View>
 						<View style={styles.balanceContainer}>
-							<EthSvg width={15} height={25} />
+							<EthSvg width={sizes.XL3} height={sizes.XL7} />
 							<Text style={styles.balanceText}>{item.price} ETH</Text>
 						</View>
 					</View>
 				</View>
 				{/*  */}
-			</BlurView>
+			</View>
 		</View>
 	);
 };
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
 	blurContainer: {
 		padding: sizes.XL6,
 		gap: sizes.XL4,
+		backgroundColor: colors.gray,
 	},
 	imageContainer: {
 		// position: "relative",
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
 	},
 	avatarText: {
 		fontFamily: fonts.regular,
-		fontSize: sizes.XL5,
+		fontSize: sizes.XL4,
 		color: colors.white,
 	},
 	balanceContainer: {
@@ -131,13 +132,13 @@ const styles = StyleSheet.create({
 		borderRadius: sizes.XL2,
 		borderColor: colors.blue,
 		paddingVertical: sizes.SM,
-		paddingHorizontal: sizes.XL4,
+		paddingHorizontal: sizes.XL2,
 		alignItems: "center",
 		justifyContent: "center",
 	},
 	balanceText: {
-		fontFamily: fonts.medium,
-		fontSize: sizes.XL4,
+		fontFamily: fonts.regular,
+		fontSize: sizes.XL3,
 		color: colors.white,
 	},
 });

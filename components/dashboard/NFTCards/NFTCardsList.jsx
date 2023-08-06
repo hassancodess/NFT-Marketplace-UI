@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import { NFTCards } from "@/data/NFTCards";
-import NFTCard from "@/components/dashboard/NFTCard";
+import NFTCard from "@/components/dashboard/NFTCards/NFTCard";
 import { sizes } from "@/constants/Theme";
 import { FlatList } from "react-native-gesture-handler";
 
@@ -25,5 +25,3 @@ const NFTCardsList = () => {
 };
 
 export default NFTCardsList;
-
-const styles = StyleSheet.create({});

@@ -1,33 +1,46 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { ScrollView, StyleSheet, Text, View, VirtualizedList } from "react-native";
+import React, { useEffect } from "react";
 import Container from "@/components/shared/Container";
-import HeaderBar from "@/components/dashboard/HeaderBar";
-import ProfileAvatar from "@/components/dashboard/ProfileAvatar";
-import Balance from "@/components/dashboard/Balance";
-import CategoriesList from "@/components/dashboard/CategoriesList";
-import NFTCardsList from "@/components/dashboard/NFTCardsList";
-import TrendingCollectionsList from "@/components/dashboard/TrendingCollectionsList";
-import { sizes } from "@/constants/Theme";
+import HeaderBar from "@/components/shared/HeaderBar";
+import ProfileAvatar from "@/components/shared/ProfileAvatar";
+import Balance from "@/components/shared/Balance";
+import CategoriesList from "@/components/dashboard/Categories/CategoriesList";
+import NFTCardsList from "@/components/dashboard/NFTCards/NFTCardsList";
+
+import TrendingCollectionsList from "@/components/dashboard/TrendingCollections/TrendingCollectionsList";
+import { colors, sizes } from "@/constants/Theme";
 import avatarImage from "@/assets/images/avatar/avatar.webp";
 
 const Home = () => {
 	return (
-		<Container style={styles.container}>
-			<HeaderBar>
-				<Balance />
-				<ProfileAvatar image={avatarImage} size={60} />
-			</HeaderBar>
-			<CategoriesList />
-			<NFTCardsList />
-			<TrendingCollectionsList />
-		</Container>
+		<ScrollView style={styles.root} showsVerticalScrollIndicator={false}>
+			<Container style={styles.container} mode="top-insets">
+				<Container style={styles.container} mode="horizontal-insets">
+					<HeaderBar>
+						<Balance />
+						<ProfileAvatar image={avatarImage} size={60} />
+					</HeaderBar>
+					<CategoriesList />
+				</Container>
+				<Container mode="left-insets">
+					<NFTCardsList />
+				</Container>
+				<Container mode="horizontal-insets">
+					<TrendingCollectionsList />
+				</Container>
+			</Container>
+		</ScrollView>
 	);
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
+	root: {
+		flex: 1,
+		backgroundColor: colors.dark,
+	},
 	container: {
-		gap: sizes.XL10,
+		gap: sizes.XL8,
 	},
 });

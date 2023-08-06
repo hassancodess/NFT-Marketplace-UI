@@ -1,14 +1,14 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { colors, fonts, sizes } from "../../constants/Theme";
-import EthSvg from "@/components/dashboard/EthSvg";
+import EthSvg from "@/components/shared/EthSvg";
 import { Text } from "react-native-paper";
 
 const Balance = () => {
 	return (
 		<View style={{ position: "relative" }}>
 			<View style={styles.balanceContainer}>
-				<EthSvg width={30} height={40} />
+				<EthSvg width={sizes.XL7} height={sizes.XL9} />
 				<Text style={styles.balanceText}>26,031</Text>
 			</View>
 			<View style={styles.absoluteContainer}>
