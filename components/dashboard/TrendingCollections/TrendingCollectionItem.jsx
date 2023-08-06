@@ -7,7 +7,6 @@ import EthSvg from "@/components/shared/EthSvg";
 
 const TrendingCollectionItem = ({ item, index }) => {
 	const { profile, name, username, percentage, earnings } = item;
-	console.log(index);
 	const rating = index + 1;
 	return (
 		<View style={styles.container}>

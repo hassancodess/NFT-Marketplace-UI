@@ -1,13 +1,15 @@
-import { ScrollView, StyleSheet, Text, View, VirtualizedList } from "react-native";
-import React, { useEffect } from "react";
+// Core
+import React from "react";
+import { ScrollView, StyleSheet } from "react-native";
+// Components
 import Container from "@/components/shared/Container";
 import HeaderBar from "@/components/shared/HeaderBar";
 import ProfileAvatar from "@/components/shared/ProfileAvatar";
 import Balance from "@/components/shared/Balance";
 import CategoriesList from "@/components/dashboard/Categories/CategoriesList";
 import NFTCardsList from "@/components/dashboard/NFTCards/NFTCardsList";
-
 import TrendingCollectionsList from "@/components/dashboard/TrendingCollections/TrendingCollectionsList";
+// Theme & Images
 import { colors, sizes } from "@/constants/Theme";
 import avatarImage from "@/assets/images/avatar/avatar.webp";
 
