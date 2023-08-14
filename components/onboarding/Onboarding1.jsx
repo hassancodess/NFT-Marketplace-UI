@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
 		gap: sizes.XL5,
 	},
 	headingText: {
-		fontSize: sizes.XL12,
+		fontSize: sizes.XL10,
 		textAlign: "center",
 		fontFamily: fonts.bold,
 		color: colors.white,
-		lineHeight: 45,
+		lineHeight: 40,
 	},
 	paragraphText: {
 		fontSize: sizes.XL6,

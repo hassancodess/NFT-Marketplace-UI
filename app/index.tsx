@@ -6,7 +6,7 @@ const IndexPage = () => {
 
 	if (!rootNavigationState?.key) return null;
 
-	return <Redirect href={"/onboarding/"} />;
+	return <Redirect href={"/dashboard/"} />;
 };
 
 export default IndexPage;

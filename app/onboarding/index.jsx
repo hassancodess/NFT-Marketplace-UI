@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useRef, useState } from "react";
+import { StyleSheet, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "@/components/shared/Container";
 import { colors, sizes } from "@/constants/Theme";
 import Swiper from "react-native-swiper";
-import NextButton from "@/components/onboarding/NextButton";
-import { Image } from "expo-image";
+import RoundedButton from "@/components/onboarding/RoundedButton";
 // Screens
 import Onboarding1 from "@/components/onboarding/Onboarding1";
 import Onboarding2 from "@/components/onboarding/Onboarding2";
@@ -14,20 +13,19 @@ import { useRouter } from "expo-router";
 const Onboarding = () => {
 	const router = useRouter();
 	const onboardingRef = useRef(null);
-	const [slideIndex, setSlideIndex] = useState(0);
+	const slideIndex = useRef(0);
 
 	const handleIndexChanged = (index) => {
-		setSlideIndex(index);
+		slideIndex.current = index;
 	};
 
 	const goToNextSlide = () => {
-		if (slideIndex < 2) {
+		if (slideIndex.current < 2) {
 			if (onboardingRef.current) {
 				onboardingRef.current.scrollBy(1);
 			}
 		} else {
-			console.log("go to dashboard");
-			router.push("/dashboard/");
+			router.replace("/onboarding/start");
 		}
 	};
 	return (
@@ -37,15 +35,13 @@ const Onboarding = () => {
 				activeDotColor={colors.white}
 				ref={onboardingRef}
 				loop={false}
-				onIndexChanged={handleIndexChanged}
-				// index={slideIndex}
-			>
+				onIndexChanged={handleIndexChanged}>
 				<Onboarding1 />
 				<Onboarding2 />
 				<Onboarding3 />
 			</Swiper>
 			<View style={styles.bottomContainer}>
-				<NextButton onPress={goToNextSlide}>Next</NextButton>
+				<RoundedButton onPress={goToNextSlide}>Next</RoundedButton>
 			</View>
 		</Container>
 	);
@@ -63,5 +59,7 @@ const styles = StyleSheet.create({
 		paddingTop: sizes.XL6,
 		paddingBottom: sizes.XL10,
 		alignItems: "center",
+		paddingHorizontal: sizes.XL3,
+		// position: "absolute",
 	},
 });

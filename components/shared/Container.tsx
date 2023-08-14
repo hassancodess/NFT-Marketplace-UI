@@ -5,8 +5,8 @@ import { colors, sizes } from "@/constants/Theme";
 
 interface ContainerProps {
 	children: ReactNode;
-	style: Object;
-	mode: string;
+	style?: Object;
+	mode?: string;
 }
 
 const Container = ({ children, style, mode }: ContainerProps) => {
@@ -17,14 +17,23 @@ const Container = ({ children, style, mode }: ContainerProps) => {
 				styles.container,
 				style,
 				mode === "horizontal-insets" && {
-					paddingRight: right + sizes.LG,
-					paddingLeft: left + sizes.LG,
+					// paddingRight: right + sizes.LG,
+					// paddingLeft: left + sizes.LG,
+					paddingRight: right + sizes.XL3,
+					paddingLeft: left + sizes.XL3,
 				},
 				mode === "top-insets" && {
 					paddingTop: top + sizes.LG,
 				},
 				mode === "left-insets" && {
 					paddingLeft: left + sizes.LG,
+				},
+				mode === "top-horizontal-insets" && {
+					paddingTop: top + sizes.LG,
+					// paddingRight: right + sizes.LG,
+					// paddingLeft: left + sizes.LG,
+					paddingRight: right + sizes.XL3,
+					paddingLeft: left + sizes.XL3,
 				},
 			]}>
 			{children}
