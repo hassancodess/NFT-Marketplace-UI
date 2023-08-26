@@ -1,65 +1,24 @@
-import { StyleSheet, View } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
-import Container from "@/components/shared/Container";
-import { colors, sizes } from "@/constants/Theme";
-import Swiper from "react-native-swiper";
-import RoundedButton from "@/components/onboarding/RoundedButton";
-// Screens
-import Onboarding1 from "@/components/onboarding/Onboarding1";
-import Onboarding2 from "@/components/onboarding/Onboarding2";
-import Onboarding3 from "@/components/onboarding/Onboarding3";
-import { useRouter } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import My360 from "@/components/My360";
+import { imageUrls } from "@/data/imageUrls";
+const index = () => {
+	useEffect(() => {}, []);
 
-const Onboarding = () => {
-	const router = useRouter();
-	const onboardingRef = useRef(null);
-	const slideIndex = useRef(0);
-
-	const handleIndexChanged = (index) => {
-		slideIndex.current = index;
-	};
-
-	const goToNextSlide = () => {
-		if (slideIndex.current < 2) {
-			if (onboardingRef.current) {
-				onboardingRef.current.scrollBy(1);
-			}
-		} else {
-			router.replace("/onboarding/start");
-		}
-	};
 	return (
-		<Container mode="top-insets" style={styles.container}>
-			<Swiper
-				style={styles.wrapper}
-				activeDotColor={colors.white}
-				ref={onboardingRef}
-				loop={false}
-				onIndexChanged={handleIndexChanged}>
-				<Onboarding1 />
-				<Onboarding2 />
-				<Onboarding3 />
-			</Swiper>
-			<View style={styles.bottomContainer}>
-				<RoundedButton onPress={goToNextSlide}>Next</RoundedButton>
-			</View>
-		</Container>
+		<View style={styles.container}>
+			<My360 srcset={imageUrls} width={300} height={300} />
+		</View>
 	);
 };
 
-export default Onboarding;
+export default index;
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.dark,
-	},
-	wrapper: {},
-	bottomContainer: {
-		backgroundColor: colors.gray,
-		paddingTop: sizes.XL6,
-		paddingBottom: sizes.XL10,
+		backgroundColor: "gray",
+		flex: 1,
+		justifyContent: "center",
 		alignItems: "center",
-		paddingHorizontal: sizes.XL3,
-		// position: "absolute",
 	},
 });
